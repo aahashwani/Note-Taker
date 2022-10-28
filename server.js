@@ -3,9 +3,19 @@ const path = require("path");
 const fs = require("fs");
 
 const uuid = require("./helper/uuid");
+const { error } = require("console");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+const connection = mysql.createConnection(process.env.JAWSDB_URL, {
+  host: "127.0.0.1",
+  user: "root",
+  password: "Ismaili786!!!",
+  database: "note-taker",
+});
+connection.connect(function (err) {
+  if (err) throw err;
+});
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
