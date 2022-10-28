@@ -7,22 +7,11 @@ const { error } = require("console");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
-// const connection = mysql.createConnection(process.env.JAWSDB_URL, {
-//   host: "127.0.0.1",
-//   user: "root",
-//   password: "Ismaili786!!!",
-//   database: "note-taker",
-// });
-// connection.connect(function (err) {
-//   if (err) throw err;
-// });
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(express.static(path.join(__dirname, "/public")));
-
-// app.use(express.static("public"));
 
 app.get("/api/notes", (req, res) => {
   fs.readFile("./db/db.json", "utf8", (err, data) => {
