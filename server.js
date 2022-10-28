@@ -12,11 +12,7 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-//API Routes
-
-//GET /api/notes should read the db.json file and return all saved notes as JSON.
 app.get("/api/notes", (req, res) => {
-  //Read file and return all saved notes
   fs.readFile("./db/db.json", "utf8", (err, data) => {
     if (err) {
       console.error(err);
